@@ -12,3 +12,16 @@ function throttle(f, t) {
 
 // throttle handleEvent so it gets called only once every 2 seconds (2000 ms)
 element.on('event', throttle(handleEvent, 2000));
+
+
+// Another example
+var isThrottled = false,
+    throttleDuration = 24; // ms
+
+function thingToThrottle() {
+    if (isThrottled) { return; }
+    isThrottled = true;
+    setTimeout(function () { isThrottled = false; }, throttleDuration);
+
+    // do your work here
+}
